@@ -18,7 +18,7 @@ const AddItem = React.createClass({
       <form className="form-inline" onSubmit={(e) => {
           e.preventDefault();
           //will need to add security validation for text input
-          if (this.state.text && parseFloat(this.state.amount) !== NaN) {
+          if (this.state.text && parseFloat(this.state.amount)) {
             this.props.onClick(this.state.text, parseFloat(this.state.amount));
             this.setState({text: '', amount: ''});
           }
