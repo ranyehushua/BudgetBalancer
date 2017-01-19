@@ -1,4 +1,5 @@
-//helper function for removing income or expenses from their respective lists
+let itemID = 1;
+
 export const removeItem = (state, id) => {
   let remove;
   const filtered = state.items.filter((item) => {
@@ -16,7 +17,7 @@ export const removeItem = (state, id) => {
 export const addItem = (state, action) => {
   return {
     items: state.items.concat({
-      id: action.id,
+      id: action.id || itemID++, //action.id will only be specified in unit tests
       desc: action.desc,
       amount: action.amount
     }),
