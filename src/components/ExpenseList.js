@@ -8,7 +8,7 @@ const ExpenseList = (props) => {
     <h2>Expenses:</h2>
     <ul>
       {props.expense.items.map((item) => {
-        return <LineItem desc={item.desc} amount={item.amount} onClick={props.onItemClick.bind(null, item.id)} key={item.id} />
+        return <LineItem desc={item.desc} amount={item.amount} onClick={props.onRemoveClick.bind(null, item.id)} key={item.id} />
       })}
     </ul>
     <p>Total Expenses: {props.expense.total}</p>
@@ -19,7 +19,8 @@ const ExpenseList = (props) => {
 
 ExpenseList.propTypes = {
   expense: PropTypes.object.isRequired,
-  onItemClick: PropTypes.func.isRequired
+  onRemoveClick: PropTypes.func.isRequired,
+  onAddClick: PropTypes.func.isRequired
 }
 
 export default ExpenseList;

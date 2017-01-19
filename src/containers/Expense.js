@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onItemClick: (id) => {
+    onRemoveClick: (id) => {
       dispatch(removeExpense(id))
     },
     onAddClick: (desc, amount) => {
