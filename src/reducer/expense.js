@@ -2,7 +2,8 @@ import { removeItem, addItem } from '../utils/reducerHelper';
 import expect from 'expect';
 var deepFreeze = require('deep-freeze');
 
-export const expense = (state = {items: [], total: 0}, action) => {
+//Started idCounter for expense state at 10,000 and income at 0, so that keys don't match
+export const expense = (state = {items: [], total: 0, idCounter: 10000}, action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return addItem(state, action);
@@ -14,14 +15,15 @@ export const expense = (state = {items: [], total: 0}, action) => {
 }
 
 export const testExpense = () => {
-  const before = {items: [], total: 0};
+  const before = {items: [], total: 0, idCounter: 10000};
   const after = {
     items: [{
       id: 1,
       desc: 'test',
       amount: 10.00
     }],
-    total: 10.00
+    total: 10.00,
+    idCounter: 10001
   };
 
   const action = {

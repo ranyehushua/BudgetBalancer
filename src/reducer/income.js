@@ -2,7 +2,7 @@ import { removeItem, addItem } from '../utils/reducerHelper';
 import expect from 'expect';
 var deepFreeze = require('deep-freeze');
 
-export const income = (state = {items: [], total: 0}, action) => {
+export const income = (state = {items: [], total: 0, idCounter: 0}, action) => {
   switch (action.type) {
     case 'ADD_INCOME':
       return addItem(state, action)
@@ -14,14 +14,15 @@ export const income = (state = {items: [], total: 0}, action) => {
 }
 
 export const testIncome = () => {
-  const before = {items: [], total: 0};
+  const before = {items: [], total: 0, idCounter: 0};
   const after = {
     items: [{
       id: 1,
       desc: 'test',
       amount: 10.00
     }],
-    total: 10.00
+    total: 10.00,
+    idCounter: 1
   };
 
   const action = {
