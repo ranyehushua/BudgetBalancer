@@ -6,8 +6,6 @@ import { testIncome } from './reducer/income';
 import { testExpense } from './reducer/expense';
 import reducer from './reducer';
 import { createStore } from 'redux';
-import Income from './containers/Income';
-import Expense from './containers/Expense';
 import IncomeExpense from './containers/IncomeExpense';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

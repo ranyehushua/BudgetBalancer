@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import LineItem from './LineItem';
 import AddItem from './AddItem';
 import List from './List';
 
