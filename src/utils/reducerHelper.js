@@ -1,5 +1,3 @@
-let itemID = 1;
-
 export const removeItem = (state, id) => {
   let remove;
   const filtered = state.items.filter((item) => {
