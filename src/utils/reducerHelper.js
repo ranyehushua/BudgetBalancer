@@ -17,10 +17,11 @@ export const removeItem = (state, id) => {
 export const addItem = (state, action) => {
   return {
     items: state.items.concat({
-      id: action.id || itemID++, //action.id will only be specified in unit tests
+      id: action.id || state.idCounter, //action.id will only be specified in unit tests
       desc: action.desc,
       amount: action.amount
     }),
-    total: state.total + action.amount
+    total: state.total + action.amount,
+    idCounter: state.idCounter + 1
   }
 }
