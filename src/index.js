@@ -6,13 +6,13 @@ import { testIncome } from './reducer/income';
 import { testExpense } from './reducer/expense';
 import reducer from './reducer';
 import { createStore } from 'redux';
-import IncomeExpense from './containers/IncomeExpense';
+import IncomeExpenseLists from './containers/IncomeExpenseLists';
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const App = () => (
   <div>
-    <IncomeExpense />
+    <IncomeExpenseLists />
   </div>
 )
 
