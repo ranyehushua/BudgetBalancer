@@ -7,14 +7,19 @@ import { testExpense } from './reducer/expense';
 import reducer from './reducer';
 import { createStore } from 'redux';
 import IncomeExpenseLists from './containers/IncomeExpenseLists';
+import { loadState, saveState } from './utils/localStorage';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const persistedState = loadState();
+const store = createStore(reducer, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const App = () => (
   <div>
     <IncomeExpenseLists />
   </div>
 )
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 ReactDOM.render(
   <Provider store={store}>
