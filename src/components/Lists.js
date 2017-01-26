@@ -7,11 +7,11 @@ const Lists = (props) => {
     <div>
     <h2>Monthly Income:</h2>
       <List items={props.income.items} clickRemove={props.removeIncome} />
-      <p>Total Income: {props.income.total}</p>
+      <p>Total Monthly Income: ${props.income.total}</p>
     <AddItem onClick={props.addIncome}/>
       <h2>Monthly Expenses:</h2>
         <List items={props.expense.items} clickRemove={props.removeExpense} />
-        <p>Total Income: {props.expense.total}</p>
+        <p>Total Monthly Expenses: ${props.expense.total}</p>
       <AddItem onClick={props.addExpense}/>
     </div>
   )
