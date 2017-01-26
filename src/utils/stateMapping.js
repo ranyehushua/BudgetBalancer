@@ -1,4 +1,4 @@
-import { removeIncome, addIncome, removeExpense, addExpense } from '../actions';
+import { removeIncome, addIncome, removeExpense, addExpense, addUser } from '../actions';
 
 export const IncomeExpense = {
   mapStateToProps: (state) => {
@@ -20,6 +20,23 @@ export const IncomeExpense = {
       },
       addExpense: (desc, amount) => {
         dispatch(addExpense(desc, amount));
+      }
+    }
+  }
+}
+
+export const MainMapping = {
+  mapStateToProps: (state) => {
+    return {
+      income: state.income,
+      expense: state.expense,
+      user: state.user
+    }
+  },
+  mapDispatchToProps: (dispatch) => {
+    return {
+      addUser: (name) => {
+        dispatch(addUser(name));
       }
     }
   }
