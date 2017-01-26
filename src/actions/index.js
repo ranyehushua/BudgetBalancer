@@ -27,3 +27,10 @@ export const addExpense = (desc, amount) => {
     amount
   }
 }
+
+export const addUser = (name) => {
+  return {
+    type: 'ADD_USER',
+    name
+  }
+}
