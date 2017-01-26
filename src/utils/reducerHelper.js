@@ -6,7 +6,8 @@ export const removeItem = (state, id) => {
   });
   const newState = {
     items: filtered,
-    total: state.total - remove
+    total: state.total - remove,
+    idCounter: state.idCounter
   }
 
   return newState;

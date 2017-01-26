@@ -57,7 +57,8 @@ export const testExpense = () => {
           amount: 30.00
         }
       ],
-    total: 60.00
+    total: 60.00,
+    idCounter: 3
   };
 
   const after2 = {
@@ -73,7 +74,8 @@ export const testExpense = () => {
           amount: 30.00
         }
       ],
-    total: 40.00
+    total: 40.00,
+    idCounter: 3
   };
 
   const action2 = {
