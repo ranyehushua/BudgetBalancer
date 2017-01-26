@@ -18,7 +18,10 @@ const App = () => (
   </div>
 )
 store.subscribe(() => {
-  saveState(store.getState());
+  saveState({
+    income: store.getState().income,
+    expense: store.getState().expense
+  });
 });
 
 ReactDOM.render(
