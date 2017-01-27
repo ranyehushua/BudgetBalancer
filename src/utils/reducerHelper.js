@@ -1,5 +1,6 @@
 export const removeItem = (state, id) => {
   let remove;
+  // eslint-disable-next-line
   const filtered = state.items.filter((item) => {
     if (item.id !== id) return item;
     else if (item.id === id) remove = item.amount;
