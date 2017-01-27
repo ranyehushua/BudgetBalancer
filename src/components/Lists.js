@@ -5,13 +5,14 @@ import List from './List';
 const Lists = (props) => {
   return (
     <div>
-    <h2>Monthly Income:</h2>
+      <h1 className="text-center">Welcome {props.user}!</h1>
+      <h2>Monthly Income:</h2>
       <List items={props.income.items} clickRemove={props.removeIncome} />
       <p>Total Monthly Income: ${props.income.total}</p>
-    <AddItem onClick={props.addIncome}/>
+      <AddItem onClick={props.addIncome}/>
       <h2>Monthly Expenses:</h2>
-        <List items={props.expense.items} clickRemove={props.removeExpense} />
-        <p>Total Monthly Expenses: ${props.expense.total}</p>
+      <List items={props.expense.items} clickRemove={props.removeExpense} />
+      <p>Total Monthly Expenses: ${props.expense.total}</p>
       <AddItem onClick={props.addExpense}/>
     </div>
   )
@@ -20,6 +21,7 @@ const Lists = (props) => {
 Lists.propTypes = {
   income: PropTypes.object.isRequired,
   expense: PropTypes.object.isRequired,
+  user: PropTypes.string.isRequired,
   removeIncome: PropTypes.func.isRequired,
   removeExpense: PropTypes.func.isRequired,
   addIncome: PropTypes.func.isRequired,
