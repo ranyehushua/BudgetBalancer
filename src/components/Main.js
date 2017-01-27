@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 import NewUser from './NewUser';
-import {browserHistory} from 'react-router';
+import BudgetList from '../containers/BudgetList';
 
 const Main = (props) => {
   return (
     <div>
       {props.income.items.length > 0 || props.expense.items.length > 0
-        ? browserHistory.push('/BudgetList')
+        ? <BudgetList />
         : <NewUser user={props.user} addUser={props.addUser} /> //Replace with link to Add new user component
       }
     </div>
