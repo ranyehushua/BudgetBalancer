@@ -28,7 +28,7 @@ const NewUser = React.createClass({
             e.preventDefault();
             this.props.addUser(this.state.user);
             this.setState({user: ''});
-            browserHistory.push('/BudgetList')
+            browserHistory.push('/WorkingIncome')
           }} >
 
           <div className="form-group">
