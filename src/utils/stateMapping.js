@@ -27,14 +27,16 @@ export const listsMapping = {
 }
 
 export const incomePromptMapping = {
-  mapStateToProps: (state) => {
+  mapStateToProps: (state, ownProps) => {
     return {
-      income: state.income
+      prompt: ownProps.prompt,
+      desc: ownProps.desc,
+      next: ownProps.next
     }
   },
   mapDispatchToProps: (dispatch) => {
     return {
-      addIncome: (desc, amount) => {
+      addItem: (desc, amount) => {
         dispatch(addIncome(desc, amount));
       }
     }
@@ -42,14 +44,16 @@ export const incomePromptMapping = {
 }
 
 export const expensePromptMapping = {
-  mapStateToProps: (state) => {
+  mapStateToProps: (state, ownProps) => {
     return {
-      expense: state.expense
+      prompt: ownProps.prompt,
+      desc: ownProps.desc,
+      next: ownProps.next
     }
   },
   mapDispatchToProps: (dispatch) => {
     return {
-      addIncome: (desc, amount) => {
+      addItem: (desc, amount) => {
         dispatch(addExpense(desc, amount));
       }
     }
