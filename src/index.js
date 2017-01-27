@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import './index.css';
-import { testIncome } from './reducer/income';
-import { testExpense } from './reducer/expense';
-import { testUser } from './reducer/user';
+import runTests from './reducer/runTests';
 import reducer from './reducer';
 import { createStore } from 'redux';
 import IncomeExpenseLists from './containers/IncomeExpenseLists';
@@ -50,6 +48,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-testIncome();
-testExpense();
-testUser();
+runTests();
