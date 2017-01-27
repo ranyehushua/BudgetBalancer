@@ -9,7 +9,8 @@ import { testUser } from './reducer/user';
 import reducer from './reducer';
 import { createStore } from 'redux';
 import IncomeExpenseLists from './containers/IncomeExpenseLists';
-import IncomeExpensePrompts from './containers/IncomeExpensePrompts';
+import WorkingIncome from './components/Prompts/Income/WorkingIncome';
+import InvestmentIncome from './components/Prompts/Income/InvestmentIncome';
 import MainContainer from './containers/MainContainer';
 import { loadState, saveState } from './utils/localStorage';
 import { addIncome } from './actions';
@@ -21,7 +22,8 @@ const store = createStore(reducer, persistedState, window.__REDUX_DEVTOOLS_EXTEN
 store.subscribe(() => {
   saveState({
     income: store.getState().income,
-    expense: store.getState().expense
+    expense: store.getState().expense,
+    user: store.getState().user
   });
 });
 
@@ -40,7 +42,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path='/' component={MainContainer}/>
-
+      <Route path='/BudgetList' component={IncomeExpenseLists} />
+      <Route path='/WorkingIncome' component={WorkingIncome} />
+      <Route path='/InvestmentIncome' component={InvestmentIncome} />
     </Router>
   </Provider>,
   document.getElementById('root')
