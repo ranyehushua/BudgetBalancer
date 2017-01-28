@@ -20,11 +20,12 @@ export const addIncome = (desc, amount) => {
   }
 }
 
-export const addExpense = (desc, amount) => {
+export const addExpense = (desc, amount, essential) => {
   return {
     type: 'ADD_EXPENSE',
     desc,
-    amount
+    amount,
+    essential
   }
 }
 

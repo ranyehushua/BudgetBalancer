@@ -1,13 +1,13 @@
-import { removeItem, addItem } from '../utils/reducerHelper';
+import { removeIncome, addIncome } from '../utils/reducerHelper';
 import expect from 'expect';
 var deepFreeze = require('deep-freeze');
 
 export const income = (state = {items: [], total: 0, idCounter: 0}, action) => {
   switch (action.type) {
     case 'ADD_INCOME':
-      return addItem(state, action)
+      return addIncome(state, action)
     case 'REMOVE_INCOME':
-      return removeItem(state, action.id);
+      return removeIncome(state, action.id);
     default:
       return state;
   }

@@ -1,27 +1,30 @@
-import { removeItem, addItem } from '../utils/reducerHelper';
+import { removeExpense, addExpense } from '../utils/reducerHelper';
 import expect from 'expect';
 var deepFreeze = require('deep-freeze');
 
 //Started idCounter for expense state at 10,000 and income at 0, so that keys don't match
-export const expense = (state = {items: [], total: 0, idCounter: 10000}, action) => {
+export const expense = (state = {essential: [], discretionary: [], total: 0, idCounter: 10000}, action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':
-      return addItem(state, action);
+      return addExpense(state, action);
     case 'REMOVE_EXPENSE':
-      return removeItem(state, action.id);
+      return removeExpense(state, action.id);
     default:
       return state;
   }
 }
 
 export const testExpense = () => {
-  const before = {items: [], total: 0, idCounter: 10000};
-  const after = {
-    items: [{
-      id: 1,
-      desc: 'test',
-      amount: 10.00
-    }],
+  const before = {essential: [], discretionary: [], total: 0, idCounter: 10000};
+  let after = {
+    essential: [
+      {
+        id: 1,
+        desc: 'test',
+        amount: 10.00,
+      }
+    ],
+    discretionary: [],
     total: 10.00,
     idCounter: 10001
   };
@@ -30,52 +33,61 @@ export const testExpense = () => {
     type: 'ADD_EXPENSE',
     id: 1,
     desc: 'test',
-    amount: 10.00
+    amount: 10.00,
+    essential: true
   }
 
   deepFreeze(before);
   deepFreeze(action);
 
   expect(expense(before, action)).toEqual(after);
-  console.log('expense reducer successfully adds item to expense array and updates expense total!');
+  console.log('expense reducer successfully adds essential item to expense array and updates expense total!');
 
-  const before2 = {
-    items:
-      [{
-          id: 1,
-          desc: 'test',
-          amount: 10.00
-        },
-        {
-          id: 2,
-          desc: 'testing',
-          amount: 20.00
-        },
-        {
-          id: 3,
-          desc: 'tested',
-          amount: 30.00
-        }
-      ],
-    total: 60.00,
-    idCounter: 3
+  const afterB = {
+    essential: [
+      {
+        id: 1,
+        desc: 'test',
+        amount: 10.00,
+      }
+    ],
+    discretionary: [
+      {
+        id: 2,
+        desc: 'test',
+        amount: 10.00
+      }
+    ],
+    total: 20.00,
+    idCounter: 10002
   };
 
+  const actionB = {
+    type: 'ADD_EXPENSE',
+    id: 2,
+    desc: 'test',
+    amount: 10.00,
+    essential: false
+  }
+
+  deepFreeze(actionB);
+
+  expect(expense(after, actionB)).toEqual(afterB);
+  console.log('expense reducer successfully adds discretionary item to expense array and updates expense total!');
+
+  const before2 = afterB;
+
   const after2 = {
-    items:
-      [{
-          id: 1,
-          desc: 'test',
-          amount: 10.00
-        },
-        {
-          id: 3,
-          desc: 'tested',
-          amount: 30.00
-        }
-      ],
-    total: 40.00,
-    idCounter: 3
+    essential: [
+      {
+        id: 1,
+        desc: 'test',
+        amount: 10.00,
+      }
+    ],
+    discretionary: [],
+    total: 10.00,
+    idCounter: 10002
   };
 
   const action2 = {

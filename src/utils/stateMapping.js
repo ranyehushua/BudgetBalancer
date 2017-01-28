@@ -19,8 +19,8 @@ export const listsMapping = {
       addIncome: (desc, amount) => {
         dispatch(addIncome(desc, amount));
       },
-      addExpense: (desc, amount) => {
-        dispatch(addExpense(desc, amount));
+      addExpense: (desc, amount, essential) => {
+        dispatch(addExpense(desc, amount, essential));
       }
     }
   }
