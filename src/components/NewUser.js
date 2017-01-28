@@ -23,12 +23,12 @@ const NewUser = React.createClass({
     return (
       <div className="text-center">
         <h1>Welcome!</h1>
-        <h3>Let's get started on your budget! First, please enter a username:</h3>
+        <h3>Before we get started on balancing your budget, please enter a username:</h3>
         <form className="form-inline" onSubmit={(e) => {
             e.preventDefault();
             this.props.addUser(this.state.user);
             this.setState({user: ''});
-            browserHistory.push('/WorkingIncome')
+            browserHistory.push('/Tutorial')
           }} >
 
           <div className="form-group">

@@ -76,3 +76,11 @@ export const mainMapping = {
     }
   }
 }
+
+export const tutorialMapping = {
+  mapStateToProps: (state) => {
+    return {
+      user: state.user
+    }
+  }
+}
