@@ -3,7 +3,7 @@ import IncomePrompt from '../../../containers/IncomePrompt';
 
 const InvestmentIncome = (props) => {
   return (
-    <IncomePrompt prompt="What is your monthly income from investments?" desc="Investment Income" next="" />
+    <IncomePrompt prompt="What is your monthly income from investments?" desc="Investment Income" next="BudgetList" />
   )
 }
 
