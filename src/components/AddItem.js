@@ -2,10 +2,11 @@ import React, { PropTypes } from 'react';
 
 const AddItem = React.createClass({
   propTypes: {
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    expense: PropTypes.bool
   },
   getInitialState () {
-    return {text: '', amount: ''}
+    return {text: '', amount: '', essential: false}
   },
   handleTextChange(e) {
     this.setState({text: e.target.value})
@@ -13,26 +14,46 @@ const AddItem = React.createClass({
   handleAmountChange(e) {
     this.setState({amount: e.target.value})
   },
+  handleEssential() {
+    this.setState({essential: !this.state.essential})
+  },
+  handleSubmit() {
+    if (this.props.expense) {
+      console.log('working');
+      return this.props.onClick(this.state.text, parseFloat(this.state.amount), this.state.essential);
+    } else {
+      return this.props.onClick(this.state.text, parseFloat(this.state.amount));
+    }
+  },
   render () {
     return (
       <form className="form-inline" onSubmit={(e) => {
           e.preventDefault();
           //will need to add security validation for text input
           if (this.state.text && parseFloat(this.state.amount)) {
-            this.props.onClick(this.state.text, parseFloat(this.state.amount));
-            this.setState({text: '', amount: ''});
+            this.handleSubmit();
+            // this.props.onClick(this.state.text, parseFloat(this.state.amount), this.state.essential);
+            this.setState({text: '', amount: '', essential: false});
           }
         }}>
         <div className="form-group">
           <label className="sr-only" htmlFor="text">Item Description</label>
           <input type="text" className="form-control" id="text" placeholder="Item Description" value={this.state.text} onChange={this.handleTextChange} />
         </div>
+        {this.props.expense
+          ? <div className="checkbox">
+            <label>
+              <input type="checkbox" onChange={this.handleEssential} /> <span>Essential expense?</span>
+            </label>
+          </div>
+          : null
+        }
         <div className="form-group">
           <label className="sr-only" htmlFor="amount">Amount</label>
           <input type="number" className="form-control" id="amount" placeholder="Amount" value={this.state.amount} onChange={this.handleAmountChange} />
         </div>
         <div className="form-group">
-          <button className="btn btn-success" type="submit">Add Item</button>
+          <button className="btn btn-success" type="submit">{this.props.expense ? 'Add Expense' : 'Add Income'}</button>
         </div>
       </form>
     )

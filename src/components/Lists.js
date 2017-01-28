@@ -10,10 +10,12 @@ const Lists = (props) => {
       <List items={props.income.items} clickRemove={props.removeIncome} />
       <p>Total Monthly Income: ${props.income.total}</p>
       <AddItem onClick={props.addIncome}/>
-      <h2>Monthly Expenses:</h2>
-      <List items={props.expense.items} clickRemove={props.removeExpense} />
+      <h2>Monthly Essential Expenses:</h2>
+      <List items={props.expense.essential} clickRemove={props.removeExpense} />
+      <h2>Monthly Discretionary Expenses:</h2>
+      <List items={props.expense.discretionary} clickRemove={props.removeExpense} />
       <p>Total Monthly Expenses: ${props.expense.total}</p>
-      <AddItem onClick={props.addExpense}/>
+      <AddItem onClick={props.addExpense} expense />
     </div>
   )
 }
