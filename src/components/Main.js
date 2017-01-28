@@ -9,7 +9,7 @@ const goToList = () => {
 const Main = (props) => {
   return (
     <div>
-      {props.income.items.length > 0 || props.expense.items.length > 0
+      {props.income.idCounter > 0 || props.expense.idCounter > 10000
         ? {goToList}
         : <NewUser user={props.user} addUser={props.addUser} /> //Replace with link to Add new user component
       }
