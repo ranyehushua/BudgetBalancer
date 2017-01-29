@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import CurrencyInput from './CurrencyInput';
 
 const AddItem = React.createClass({
   propTypes: {
@@ -48,10 +49,7 @@ const AddItem = React.createClass({
           </div>
           : null
         }
-        <div className="form-group">
-          <label className="sr-only" htmlFor="amount">Amount</label>
-          <input type="number" className="form-control" id="amount" placeholder="Amount" value={this.state.amount} onChange={this.handleAmountChange} />
-        </div>
+        <CurrencyInput value={this.state.amount} onChange={this.handleAmountChange} />
         <div className="form-group">
           <button className="btn btn-success" type="submit">{this.props.expense ? 'Add Expense' : 'Add Income'}</button>
         </div>

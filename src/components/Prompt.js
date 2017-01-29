@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import {browserHistory} from 'react-router';
+import CurrencyInput from './CurrencyInput';
 
 const Prompt = React.createClass({
   propTypes: {
@@ -30,13 +31,7 @@ const Prompt = React.createClass({
                 this.nextView();
               }
             }}>
-            <div className="form-group">
-              <label className="sr-only" htmlFor="amount">Amount</label>
-              <div className="input-group">
-                <div className="input-group-addon">$</div>
-                <input type="number" className="form-control" id="amount" placeholder="Amount" value={this.state.amount} onChange={this.handleAmountChange} />
-              </div>
-            </div>
+            <CurrencyInput value={this.state.amount} onChange={this.handleAmountChange} />
             <button type="submit" className="btn btn-success" style={{margin: '10px'}}>Add Item</button>
             <button type="button" className="btn btn-default" onClick={this.nextView}>Skip Item</button>
           </form>
