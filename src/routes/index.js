@@ -1,5 +1,6 @@
 import MainContainer from '../containers/MainContainer';
 import WorkingIncome from '../components/Prompts/Income/WorkingIncome';
+import SpouseWorkingIncome from '../components/Prompts/Income/SpouseWorkingIncome';
 import InvestmentIncome from '../components/Prompts/Income/InvestmentIncome';
 import TutorialContainer from '../containers/TutorialContainer';
 import BudgetList from '../containers/BudgetList';
@@ -13,6 +14,7 @@ const routes = (
       <IndexRoute component={MainContainer} />
       <Route path='/BudgetList' component={BudgetList} />
       <Route path='/WorkingIncome' component={WorkingIncome} />
+      <Route path='/SpouseWorkingIncome' component={SpouseWorkingIncome} />
       <Route path='/InvestmentIncome' component={InvestmentIncome} />
       <Route path='/Tutorial' component={TutorialContainer} />
     </Route>
