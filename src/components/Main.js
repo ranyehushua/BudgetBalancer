@@ -25,23 +25,3 @@ const Main = React.createClass({
 });
 
 export default Main
-//
-// const Main = (props) => {
-//   return (
-//     <div>
-//       {props.income.idCounter > 0 || props.expense.idCounter > 10000
-//         ? <BudgetList />
-//         : <NewUser user={props.user} addUser={props.addUser} /> //Replace with link to Add new user component
-//       }
-//     </div>
-//   )
-// }
-//
-// Main.propTypes = {
-//    income: PropTypes.object.isRequired,
-//    expense: PropTypes.object.isRequired,
-//    user: PropTypes.string.isRequired,
-//    addUser: PropTypes.func.isRequired
-// }
-//
-// export default Main;
