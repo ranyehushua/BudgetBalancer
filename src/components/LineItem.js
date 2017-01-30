@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 const LineItem = (props) => {
   return (
     <li>
-      <p>{props.desc + ": $" + props.amount}</p>
-      <button className="btn btn-danger" onClick={props.onClick}>Remove item</button>
+      {props.desc + ": $" + props.amount}
+      <button className="btn btn-danger" onClick={props.onClick} style={{padding: '0 3px'}}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     </li>
   )
 }
