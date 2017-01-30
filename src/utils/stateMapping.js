@@ -48,13 +48,14 @@ export const expensePromptMapping = {
     return {
       prompt: ownProps.prompt,
       desc: ownProps.desc,
-      next: ownProps.next
+      next: ownProps.next,
+      essential: ownProps.essential
     }
   },
   mapDispatchToProps: (dispatch) => {
     return {
-      addItem: (desc, amount) => {
-        dispatch(addExpense(desc, amount));
+      addItem: (desc, amount, essential) => {
+        dispatch(addExpense(desc, amount, essential));
       }
     }
   }
