@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const EditLineItem = (props) => {
   return (
     <div>
-      
+      Working
     </div>
   )
 }
