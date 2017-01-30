@@ -26,6 +26,35 @@ export const addIncome = (state, action) => {
   }
 }
 
+export const editIncome = (state, action) => {
+  let remove, add, edit;
+  // eslint-disable-next-line
+  const editted = state.items.map((item) => {
+    if (item.id !== action.id) return item;
+    else if (item.id === action.id) {
+      remove = item.amount;
+      console.log(remove);
+      add = action.amount;
+      console.log(add);
+      edit = {
+        id: item.id,
+        desc: action.desc,
+        amount: add
+      }
+      console.log(edit);
+      return edit;
+    }
+  });
+  console.log(editted);
+  const newState = {
+    items: editted,
+    total: state.total - remove + add,
+    idCounter: state.idCounter
+  }
+
+  return newState;
+}
+
 export const addExpense = (state, action) => {
   switch(action.essential) {
     case true:
