@@ -5,7 +5,7 @@ const List  = (props) => {
   return (
     <ul>
       {props.items.map((item) => {
-        return <LineItem desc={item.desc} amount={item.amount} onClick={props.clickRemove.bind(null, item.id)} key={item.id} />
+        return <LineItem desc={item.desc} amount={item.amount} id={item.id} remove={props.clickRemove.bind(null, item.id)} edit={props.clickEdit} key={item.id} />
       })}
     </ul>
   )
@@ -13,7 +13,8 @@ const List  = (props) => {
 
 List.propTypes = {
   items: PropTypes.array.isRequired,
-  clickRemove: PropTypes.func.isRequired
+  clickRemove: PropTypes.func.isRequired,
+  clickEdit: PropTypes.func.isRequired
 }
 
 export default List;
