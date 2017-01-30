@@ -7,7 +7,8 @@ const Prompt = React.createClass({
     addItem: PropTypes.func.isRequired,
     prompt: PropTypes.string.isRequired,
     desc: PropTypes.string.isRequired,
-    next: PropTypes.string.isRequired
+    next: PropTypes.string.isRequired,
+    essential: PropTypes.bool
   },
   getInitialState() {
     return {amount: ''}
@@ -26,7 +27,7 @@ const Prompt = React.createClass({
               e.preventDefault();
               //will need to add security validation for text input
               if (parseFloat(this.state.amount)) {
-                this.props.addItem(this.props.desc, parseFloat(this.state.amount));
+                this.props.addItem(this.props.desc, parseFloat(this.state.amount), this.props.essential);
                 this.setState({amount: ''});
                 this.nextView();
               }
