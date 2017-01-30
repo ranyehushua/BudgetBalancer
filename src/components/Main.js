@@ -1,11 +1,6 @@
 import React, { PropTypes } from 'react';
 import {browserHistory} from 'react-router';
 import NewUser from './NewUser';
-import BudgetList from '../containers/BudgetList';
-
-const goToList = () => {
-  browserHistory.push('/BudgetList');
-}
 
 const Main = React.createClass({
   propTypes: {
