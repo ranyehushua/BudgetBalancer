@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import NewUser from './NewUser';
 
 const Main = React.createClass({
@@ -10,7 +10,7 @@ const Main = React.createClass({
     addUser: PropTypes.func.isRequired
   },
   componentDidMount() {
-    if (this.props.idCounter > 0 || this.props.expense.idCounter > 10000) browserHistory.push('/BudgetList');
+    if (this.props.idCounter > 0 || this.props.expense.idCounter > 10000) hashHistory.push('/BudgetList');
   },
   render () {
     return (

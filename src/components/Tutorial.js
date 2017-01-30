@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 
 const Tutorial = (props) => {
   return (
@@ -9,7 +9,7 @@ const Tutorial = (props) => {
       <p>If any of the requested items do not apply to you, feel free to hit the <button type="button" className="btn btn-default" onClick={(e) => e.preventDefaults} style={{cursor: 'inherit'}}>Skip Item</button> button.</p>
       <p>We will be sure to separate your expenses by essential and discretionary categories, in case we need to examine curbing your spending habits.</p>
       <p>Once we get through the basic items, you will have the opportunity to add/remove aditional income or expenses and we can determine whether you have money left over that can go into savings.</p>
-      <h4>Ready to get started? <button className="btn btn-success" type="button" onClick={() => browserHistory.push('/WorkingIncome')}>Let's Go!</button></h4>
+      <h4>Ready to get started? <button className="btn btn-success" type="button" onClick={() => hashHistory.push('/WorkingIncome')}>Let's Go!</button></h4>
     </div>
   )
 }

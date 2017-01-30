@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 
 const NewUser = React.createClass({
   propTypes: {
@@ -28,7 +28,7 @@ const NewUser = React.createClass({
             e.preventDefault();
             this.props.addUser(this.state.user);
             this.setState({user: ''});
-            browserHistory.push('/Tutorial')
+            hashHistory.push('/Tutorial')
           }} >
 
           <div className="form-group">

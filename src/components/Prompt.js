@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import CurrencyInput from './CurrencyInput';
 
 const Prompt = React.createClass({
@@ -17,7 +17,7 @@ const Prompt = React.createClass({
     this.setState({amount: e.target.value})
   },
   nextView() {
-    browserHistory.push('/' + this.props.next);
+    hashHistory.push('/' + this.props.next);
   },
   render () {
     return (

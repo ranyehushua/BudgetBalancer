@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import './index.css';
 import runTests from './reducer/runTests';
@@ -23,7 +23,7 @@ store.subscribe(() => {
 
 localStorage.removeItem('budgetCalcState');
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 ReactDOM.render(
   <Provider store={store}>
