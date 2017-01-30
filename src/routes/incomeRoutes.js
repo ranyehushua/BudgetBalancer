@@ -26,15 +26,15 @@ const prompts = [
 ]
 
 //IncomePrompt component expects prompt, desc, next props
-const IncomeRoutes = [];
+const incomeRoutes = [];
 prompts.forEach((item, i) => {
   const Component = (props) => {
     return (
-      <IncomePrompt prompt={item.prompt} desc={item.desc} next={i === prompts.length - 1 ? 'BudgetList' : prompts[i+1].desc.split(' ').join('')} key={i.toString()}/>
+      <IncomePrompt prompt={item.prompt} desc={item.desc} next={i === prompts.length - 1 ? 'ExpenseTutorial' : prompts[i+1].desc.split(' ').join('')} key={i.toString()}/>
     )
   }
   const route = (<Route path={'/' + item.desc.split(' ').join('')} component={Component} key={i.toString()} />);
-  IncomeRoutes.push(route);
+  incomeRoutes.push(route);
 });
 
-export default IncomeRoutes;
+export default incomeRoutes;

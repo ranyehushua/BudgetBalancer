@@ -4,14 +4,14 @@ import BudgetList from '../containers/BudgetList';
 import App from '../components/App';
 import { Route, IndexRoute } from 'react-router';
 import React from 'react';
-import IncomeRoutes from './incomeRoutes';
+import incomeRoutes from './incomeRoutes';
 
 
 const routes = (
   <div>
     <Route path='/' component={App} >
       <IndexRoute component={MainContainer} />
-      {IncomeRoutes}
+      {incomeRoutes}
       <Route path='/BudgetList' component={BudgetList} />
       <Route path='/Tutorial' component={TutorialContainer} />
     </Route>
