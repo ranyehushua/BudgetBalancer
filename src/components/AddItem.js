@@ -18,22 +18,14 @@ const AddItem = React.createClass({
   handleEssential() {
     this.setState({essential: !this.state.essential})
   },
-  handleSubmit() {
-    if (this.props.expense) {
-      console.log('working');
-      return this.props.onClick(this.state.text, parseFloat(this.state.amount), this.state.essential);
-    } else {
-      return this.props.onClick(this.state.text, parseFloat(this.state.amount));
-    }
-  },
   render () {
     return (
       <form className="form-inline" onSubmit={(e) => {
           e.preventDefault();
           //will need to add security validation for text input
           if (this.state.text && parseFloat(this.state.amount)) {
-            this.handleSubmit();
-            // this.props.onClick(this.state.text, parseFloat(this.state.amount), this.state.essential);
+            //if onClick is for addIncome, it will just ignore the last essential argument
+            this.props.onClick(this.state.text, parseFloat(this.state.amount), this.state.essential);
             this.setState({text: '', amount: '', essential: false});
           }
         }}>
