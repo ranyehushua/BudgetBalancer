@@ -37,7 +37,9 @@ Lists.propTypes = {
   removeIncome: PropTypes.func.isRequired,
   removeExpense: PropTypes.func.isRequired,
   addIncome: PropTypes.func.isRequired,
-  addExpense: PropTypes.func.isRequired
+  addExpense: PropTypes.func.isRequired,
+  editIncome: PropTypes.func.isRequired,
+  editExpense: PropTypes.func.isRequired
 }
 
 export default Lists;
