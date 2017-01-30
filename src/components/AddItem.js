@@ -1,6 +1,23 @@
 import React, { PropTypes } from 'react';
 import CurrencyInput from './CurrencyInput';
 
+const styles = {
+  form: {
+    maxWidth: '450px',
+    margin: '10px auto'
+  },
+  container: {
+    backgroundColor: 'rgba(50,50,50, .4)',
+    borderRadius: '10px',
+    padding: '10px',
+    maxWidth: '600px',
+    margin: '10px auto'
+  },
+  button: {
+    margin: '0px'
+  }
+}
+
 const AddItem = React.createClass({
   propTypes: {
     onClick: PropTypes.func.isRequired,
@@ -20,7 +37,8 @@ const AddItem = React.createClass({
   },
   render () {
     return (
-      <form className="form-inline" onSubmit={(e) => {
+      <div style={styles.container}>
+      <form className="form" style={styles.form} onSubmit={(e) => {
           e.preventDefault();
           //will need to add security validation for text input
           if (this.state.text && parseFloat(this.state.amount)) {
@@ -33,19 +51,17 @@ const AddItem = React.createClass({
           <label className="sr-only" htmlFor="text">Item Description</label>
           <input type="text" className="form-control" id="text" placeholder="Item Description" value={this.state.text} onChange={this.handleTextChange} />
         </div>
-        {this.props.expense
-          ? <div className="checkbox">
-            <label>
-              <input type="checkbox" onChange={this.handleEssential} /> <span>Essential expense?</span>
-            </label>
-          </div>
-          : null
-        }
+
         <CurrencyInput value={this.state.amount} onChange={this.handleAmountChange} />
-        <div className="form-group">
-          <button className="btn btn-success" type="submit">{this.props.expense ? 'Add Expense' : 'Add Income'}</button>
+        <div className="form-group text-center">
+          {this.props.expense
+            ? <button className="btn btn-primary" type="submit" onClick={this.handleEssential} style={styles.button} >{this.props.expense ? 'Add Essential Expense' : 'Add Income'}</button>
+            : null
+          }
+          <button className={this.props.expense ? "btn btn-default" : "btn btn-success"} type="submit" style={styles.button}>{this.props.expense ? 'Add Discretionary Expense' : 'Add Income'}</button>
         </div>
       </form>
+      </div>
     )
   }
 })
