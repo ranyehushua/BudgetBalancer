@@ -29,6 +29,24 @@ export const addExpense = (desc, amount, essential) => {
   }
 }
 
+export const editIncome = (id, desc, amount) => {
+  return {
+    type: 'EDIT_INCOME',
+    id,
+    desc,
+    amount
+  }
+}
+
+export const editExpense = (id, desc, amount) => {
+  return {
+    type: 'EDIT_EXPENSE',
+    id,
+    desc,
+    amount
+  }
+}
+
 export const addUser = (name) => {
   return {
     type: 'ADD_USER',
