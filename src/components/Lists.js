@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import AddItem from './AddItem';
 import List from './List';
 import Surplus from './Surplus';
+import Deficit from './Deficit';
 
 const Lists = (props) => {
   return (
@@ -11,7 +12,7 @@ const Lists = (props) => {
         props.surplus > 0
           ? <Surplus amount={props.surplus} />
           : props.surplus < 0
-            ? <div>It looks like you have a deficit of ${props.surplus}, consider cutting down on your expenses.</div>
+            ? <Deficit amount={-1 * props.surplus} />
             : null
       }
       {
