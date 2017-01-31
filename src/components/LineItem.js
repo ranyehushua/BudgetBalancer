@@ -5,7 +5,9 @@ const style={
   li: {
     border: 'black solid 1px',
     margin: '3px 0',
-    padding: '5px'
+    padding: '5px',
+    backgroundColor: 'rgba(100, 100, 100, .4)',
+    color: '#fff'
   },
   button: {
     padding: '1px 3px',
