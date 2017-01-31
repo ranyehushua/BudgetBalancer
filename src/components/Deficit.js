@@ -12,7 +12,7 @@ const style = {
 
 const Deficit = (props) => {
   return (
-    <div style={style}>It looks like you have a deficit of ${props.amount}. Consider cutting down on your expenses or reallocating savings.</div>
+    <div className="text-center" style={style}>It looks like you have a deficit of ${props.amount}. Consider cutting down on your expenses or reallocating savings.</div>
   )
 }
 
