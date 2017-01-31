@@ -1,16 +1,17 @@
 import React, { PropTypes } from 'react';
 import AddItem from './AddItem';
 import List from './List';
+import Surplus from './Surplus';
 
 const Lists = (props) => {
   return (
     <div>
       <h1 className="text-center">Welcome {props.user}!</h1>
       {
-        props.income.total - props.expense.total - props.savings.total > 0
-          ? <div>You have a surplus in your budget! Scroll below and let's allocate some savings.</div>
-          : props.income.total - props.expense.total - props.savings.total < 0
-            ? <div>It looks like you have a deficit, consider cutting down on your expenses.</div>
+        props.surplus > 0
+          ? <Surplus amount={props.surplus} />
+          : props.surplus < 0
+            ? <div>It looks like you have a deficit of ${props.surplus}, consider cutting down on your expenses.</div>
             : null
       }
       {
@@ -58,6 +59,7 @@ const Lists = (props) => {
 Lists.propTypes = {
   income: PropTypes.object.isRequired,
   savings: PropTypes.object.isRequired,
+  surplus: PropTypes.number.isRequired,
   expense: PropTypes.object.isRequired,
   user: PropTypes.string.isRequired,
   removeIncome: PropTypes.func.isRequired,
