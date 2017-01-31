@@ -6,6 +6,7 @@ export const listsMapping = {
       income: state.income,
       expense: state.expense,
       savings: state.savings,
+      surplus: state.income.total - state.expense.total - state.savings.total,
       user: state.user
     }
   },
