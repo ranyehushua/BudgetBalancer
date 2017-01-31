@@ -5,6 +5,13 @@ export const removeIncome = (id) => {
   }
 }
 
+export const removeSavings = (id) => {
+  return {
+    type: 'REMOVE_SAVINGS',
+    id
+  }
+}
+
 export const removeExpense = (id) => {
   return {
     type: 'REMOVE_EXPENSE',
@@ -15,6 +22,14 @@ export const removeExpense = (id) => {
 export const addIncome = (desc, amount) => {
   return {
     type: 'ADD_INCOME',
+    desc,
+    amount
+  }
+}
+
+export const addSavings = (desc, amount) => {
+  return {
+    type: 'ADD_SAVINGS',
     desc,
     amount
   }
@@ -32,6 +47,15 @@ export const addExpense = (desc, amount, essential) => {
 export const editIncome = (id, desc, amount) => {
   return {
     type: 'EDIT_INCOME',
+    id,
+    desc,
+    amount
+  }
+}
+
+export const editSavings = (id, desc, amount) => {
+  return {
+    type: 'EDIT_SAVINGS',
     id,
     desc,
     amount
