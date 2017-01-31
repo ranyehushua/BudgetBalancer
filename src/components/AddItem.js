@@ -7,7 +7,7 @@ const styles = {
     margin: '10px auto'
   },
   container: {
-    backgroundColor: 'rgba(50,50,50, .4)',
+    backgroundColor: 'rgba(50,50,50, .2)',
     boxShadow: '5px 5px 8px -2px rgba(0,0,0,0.75)',
     borderRadius: '10px',
     padding: '10px',
@@ -16,13 +16,20 @@ const styles = {
   },
   button: {
     margin: '0px'
+  },
+  surplus: {
+    color: 'white',
+    fontWeight: '400',
+    paddingBottom: '5px'
   }
 }
 
 const AddItem = React.createClass({
   propTypes: {
     onClick: PropTypes.func.isRequired,
-    expense: PropTypes.bool
+    expense: PropTypes.bool,
+    savings: PropTypes.bool,
+    surplus: PropTypes.number
   },
   getInitialState () {
     return {text: '', amount: '', essential: false}
@@ -58,6 +65,11 @@ const AddItem = React.createClass({
           {this.props.expense
             ? <button className="btn btn-primary" type="submit" onClick={this.handleEssential} style={styles.button} >{this.props.expense ? 'Add Essential Expense' : 'Add Income'}</button>
             : null
+          }
+          {
+            this.props.surplus
+              ? <div style={styles.surplus}>Remaining surplus: ${this.props.surplus}</div>
+              : null
           }
           <button className={this.props.expense ? "btn btn-default" : "btn btn-success"} type="submit" style={styles.button}>{this.props.expense ? 'Add Discretionary Expense' : this.props.savings ? 'Add Savings' : 'Add Income'}</button>
         </div>

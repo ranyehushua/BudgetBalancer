@@ -50,7 +50,7 @@ const Lists = (props) => {
       }
       {
         props.income.total - props.expense.total - props.savings.total > 0
-          ? <AddItem onClick={props.addSavings} savings />
+          ? <AddItem onClick={props.addSavings} savings surplus={props.surplus} />
           : null
       }
     </div>
