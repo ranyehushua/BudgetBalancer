@@ -59,7 +59,7 @@ const AddItem = React.createClass({
             ? <button className="btn btn-primary" type="submit" onClick={this.handleEssential} style={styles.button} >{this.props.expense ? 'Add Essential Expense' : 'Add Income'}</button>
             : null
           }
-          <button className={this.props.expense ? "btn btn-default" : "btn btn-success"} type="submit" style={styles.button}>{this.props.expense ? 'Add Discretionary Expense' : 'Add Income'}</button>
+          <button className={this.props.expense ? "btn btn-default" : "btn btn-success"} type="submit" style={styles.button}>{this.props.expense ? 'Add Discretionary Expense' : this.props.savings ? 'Add Savings' : 'Add Income'}</button>
         </div>
       </form>
       </div>
