@@ -38,14 +38,18 @@ const Lists = (props) => {
 
 Lists.propTypes = {
   income: PropTypes.object.isRequired,
+  savings: PropTypes.object.isRequired,
   expense: PropTypes.object.isRequired,
   user: PropTypes.string.isRequired,
   removeIncome: PropTypes.func.isRequired,
+  removeSavings: PropTypes.func.isRequired,
   removeExpense: PropTypes.func.isRequired,
   addIncome: PropTypes.func.isRequired,
+  addSavings: PropTypes.func.isRequired,
   addExpense: PropTypes.func.isRequired,
   editIncome: PropTypes.func.isRequired,
-  editExpense: PropTypes.func.isRequired
+  editExpense: PropTypes.func.isRequired,
+  editSavings: PropTypes.func.isRequired
 }
 
 export default Lists;
