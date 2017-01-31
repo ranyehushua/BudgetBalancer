@@ -1,10 +1,11 @@
-import { removeIncome, addIncome, removeExpense, addExpense, addUser, editIncome, editExpense } from '../actions';
+import { removeIncome, addIncome, removeExpense, addExpense, addUser, editIncome, editExpense, addSavings, editSavings, removeSavings } from '../actions';
 
 export const listsMapping = {
   mapStateToProps: (state) => {
     return {
       income: state.income,
       expense: state.expense,
+      savings: state.savings,
       user: state.user
     }
   },
@@ -13,17 +14,26 @@ export const listsMapping = {
       removeIncome: (id) => {
         dispatch(removeIncome(id));
       },
+      removeSavings: (id) => {
+        dispatch(removeSavings(id));
+      },
       removeExpense: (id) => {
         dispatch(removeExpense(id));
       },
       addIncome: (desc, amount) => {
         dispatch(addIncome(desc, amount));
       },
+      addSavings: (desc, amount) => {
+        dispatch(addSavings(desc, amount));
+      },
       addExpense: (desc, amount, essential) => {
         dispatch(addExpense(desc, amount, essential));
       },
       editIncome: (id, desc, amount) => {
         dispatch(editIncome(id, desc, amount))
+      },
+      editSavings: (id, desc, amount) => {
+        dispatch(editSavings(id, desc, amount))
       },
       editExpense: (id, desc, amount) => {
         dispatch(editExpense(id, desc, amount))
