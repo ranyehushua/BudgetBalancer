@@ -7,6 +7,13 @@ const Lists = (props) => {
     <div>
       <h1 className="text-center">Welcome {props.user}!</h1>
       {
+        props.income.total - props.expense.total - props.savings.total > 0
+          ? <div>You have a surplus in your budget! Scroll below and let's allocate some savings.</div>
+          : props.income.total - props.expense.total - props.savings.total < 0
+            ? <div>It looks like you have a deficit, consider cutting down on your expenses.</div>
+            : null
+      }
+      {
         props.income.items.length > 0
           ? <div><h3>Monthly Income:</h3>
           <List items={props.income.items} clickRemove={props.removeIncome} clickEdit={props.editIncome} />
@@ -32,6 +39,18 @@ const Lists = (props) => {
           : null
       }
       <AddItem onClick={props.addExpense} expense />
+      {
+        props.savings.items.length > 0
+          ? <div><h3>Monthly Savings:</h3>
+          <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
+          <h4>Total Monthly Savings: ${props.savings.total}</h4></div>
+          : null
+      }
+      {
+        props.income.total - props.expense.total - props.savings.total > 0
+          ? <AddItem onClick={props.addSavings} savings />
+          : null
+      }
     </div>
   )
 }
