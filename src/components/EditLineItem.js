@@ -7,10 +7,12 @@ const style = {
   },
   desc: {
     maxWidth: '60%',
-    marginRight: '5px'
+    marginRight: '5px',
+    color: 'black'
   },
   amount: {
-    maxWidth: '25%'
+    maxWidth: '25%',
+    color: 'black'
   }
 }
 
