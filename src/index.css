@@ -43,3 +43,15 @@ ul {
   margin-top: 100px;
 }
 
+@media (max-width: 480px) {
+  html {
+    display: flex;
+    align-items: center;
+  }
+  .prompt {
+    margin-top: 0px;
+  }
+  body {
+    padding: 0;
+  }
+}
