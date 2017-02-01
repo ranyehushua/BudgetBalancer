@@ -23,7 +23,7 @@ const NewUser = React.createClass({
     return (
       <div className="text-center">
         <h1>Welcome!</h1>
-        <h3>Before we get started on balancing your budget, please enter a username:</h3>
+        <h4>Before we get started on balancing your budget, please enter a username:</h4>
         <form className="form-inline" onSubmit={(e) => {
             e.preventDefault();
             this.props.addUser(this.state.user);
