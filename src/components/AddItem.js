@@ -1,17 +1,10 @@
 import React, { PropTypes } from 'react';
 import CurrencyInput from './CurrencyInput';
+import TransparentContainer from './TransparentContainer';
 
 const styles = {
   form: {
     maxWidth: '450px',
-    margin: '10px auto'
-  },
-  container: {
-    backgroundColor: 'rgba(50,50,50, .2)',
-    boxShadow: '5px 5px 8px -2px rgba(0,0,0,0.75)',
-    borderRadius: '10px',
-    padding: '10px',
-    maxWidth: '600px',
     margin: '10px auto'
   },
   button: {
@@ -45,7 +38,7 @@ const AddItem = React.createClass({
   },
   render () {
     return (
-      <div style={styles.container}>
+      <TransparentContainer>
       <form className="form" style={styles.form} onSubmit={(e) => {
           e.preventDefault();
           //will need to add security validation for text input
@@ -74,7 +67,7 @@ const AddItem = React.createClass({
           <button className={this.props.expense ? "btn btn-default" : "btn btn-success"} type="submit" style={styles.button}>{this.props.expense ? 'Add Discretionary Expense' : this.props.savings ? 'Add Savings' : 'Add Income'}</button>
         </div>
       </form>
-      </div>
+      </TransparentContainer>
     )
   }
 })
