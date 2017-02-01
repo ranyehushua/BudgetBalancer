@@ -17,7 +17,7 @@ const prompts = [
   },
   {
     prompt: "If you have a renter's or homeowner's insurance plan, what is the monthly expense?",
-    desc: "Housaing Insurance"
+    desc: "Housing Insurance"
   }
 ]
 
