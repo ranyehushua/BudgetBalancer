@@ -21,7 +21,7 @@ const NewUser = React.createClass({
   },
   render () {
     return (
-      <div className="text-center">
+      <div className="text-center prompt">
         <h1>Welcome!</h1>
         <h4>Before we get started on balancing your budget, please enter a username:</h4>
         <form className="form-inline" onSubmit={(e) => {

@@ -3,7 +3,7 @@ import {hashHistory} from 'react-router';
 
 const Tutorial = (props) => {
   return (
-    <div>
+    <div className="prompt">
       <h1>Welcome {props.user}! Are you excited to balance your budget?</h1>
       <p>To get started, you will be prompted with a series of questions regarding your monthly income and expenses.</p>
       <p>If any of the requested items do not apply to you, feel free to hit the <button type="button" className="btn btn-default" onClick={(e) => e.preventDefaults} style={{cursor: 'inherit'}}>Skip Item</button> button.</p>

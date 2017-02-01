@@ -22,7 +22,6 @@ html {
 
 body {
   margin: 0 auto;
-  padding: 0;
   padding: 20px;
   font-family: sans-serif;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67,4e5c5a+82,0e0e0e+100;Grey+3D */
@@ -39,3 +38,8 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+
+.prompt {
+  margin-top: 100px;
+}
+
