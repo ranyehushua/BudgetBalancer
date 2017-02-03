@@ -7,7 +7,8 @@ const style = {
   fontSize: '1em',
   fontWeight: '400',
   color: '#fff',
-  padding: '5px'
+  padding: '5px',
+  marginBottom: '10px'
 }
 
 const Surplus = (props) => {
