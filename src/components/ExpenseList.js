@@ -6,12 +6,10 @@ import AddItem from './AddItem';
 const ExpenseList = (props) => {
   return (
     <div>
-      {
-        props.expense.essential.length > 0
-          ? <div><h3>Monthly Essential Expenses:</h3>
-          <List items={props.expense.essential} clickRemove={props.removeExpense} clickEdit={props.editExpense} /></div>
-          : null
-      }
+
+        <div><h3>Monthly Essential Expenses:</h3>
+        <List items={props.expense.essential} clickRemove={props.removeExpense} clickEdit={props.editExpense} /></div>
+
       {
         props.expense.discretionary.length > 0
           ? <div><h3>Monthly Discretionary Expenses:</h3>
