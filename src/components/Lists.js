@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import AddItem from './AddItem';
 import List from './List';
+import IncomeList from './IncomeList';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
 
@@ -15,14 +16,12 @@ const Lists = (props) => {
             ? <Deficit amount={-1 * props.surplus} />
             : null
       }
+
       {
         props.income.items.length > 0
-          ? <div><h3>Monthly Income:</h3>
-          <List items={props.income.items} clickRemove={props.removeIncome} clickEdit={props.editIncome} />
-          <h4>Total Monthly Income: ${props.income.total}</h4></div>
+          ? <IncomeList income={props.income} removeIncome={props.removeIncome} addIncome={props.addIncome} editIncome={props.editIncome} />
           : null
       }
-      <AddItem onClick={props.addIncome} className='text-center'/>
       {
         props.expense.essential.length > 0
           ? <div><h3>Monthly Essential Expenses:</h3>
