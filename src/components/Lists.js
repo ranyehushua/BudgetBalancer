@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import AddItem from './AddItem';
-import List from './List';
 import IncomeList from './IncomeList';
 import ExpenseList from './ExpenseList';
 import SavingsList from './SavingsList';

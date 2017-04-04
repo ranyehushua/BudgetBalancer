@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 const style = {
   backgroundColor: 'rgba(50,50,50, .2)',
