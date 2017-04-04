@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import AddItem from './AddItem';
 import List from './List';
 import IncomeList from './IncomeList';
+import ExpenseList from './ExpenseList';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
 
@@ -24,22 +25,9 @@ const Lists = (props) => {
       }
       {
         props.expense.essential.length > 0
-          ? <div><h3>Monthly Essential Expenses:</h3>
-          <List items={props.expense.essential} clickRemove={props.removeExpense} clickEdit={props.editExpense} /></div>
+          ? <ExpenseList expense={props.expense} removeExpense={props.removeExpense} addExpense={props.addExpense} editExpense={props.editExpense} />
           : null
       }
-      {
-        props.expense.discretionary.length > 0
-          ? <div><h3>Monthly Discretionary Expenses:</h3>
-            <List items={props.expense.discretionary} clickRemove={props.removeExpense} clickEdit={props.editExpense} /></div>
-          : null
-      }
-      {
-        props.expense.discretionary.length > 0 || props.expense.essential.length > 0
-          ? <h4>Total Monthly Expenses: ${props.expense.total}</h4>
-          : null
-      }
-      <AddItem onClick={props.addExpense} expense />
       {
         props.savings.items.length > 0
           ? <div><h3>Monthly Savings:</h3>
