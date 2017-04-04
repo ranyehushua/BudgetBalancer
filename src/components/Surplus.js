@@ -14,7 +14,7 @@ const style = {
 const Surplus = (props) => {
   return (
     <div style={style} className="text-center">
-      You currently have a surplus of ${props.amount} in your budget! Scroll below to adjust your essential and discretionary expenses or, better yet, let's allocate some savings!
+      You currently have a surplus of ${props.amount} in your budget! Toggle below to adjust your essential and discretionary expenses or, better yet, let's allocate some savings!
     </div>
   )
 }
