@@ -6,8 +6,9 @@ const ListToggle = React.createClass({
   },
   styles: {
     button: {
-      margin: '0px 10px',
-      width: '100px'
+      margin: '0px 3%',
+      width: '25%',
+      padding: '5px 3px'
     }
   },
   getInitialState() {
