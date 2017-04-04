@@ -6,15 +6,14 @@ import AddItem from './AddItem';
 const SavingsList = (props) => {
   return (
     <div>
+
+        <div><h3>Monthly Savings:</h3>
+        <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
+        <h4>Total Monthly Savings: ${props.savings.total}</h4></div>
+
+
       {
-        props.savings.items.length > 0
-          ? <div><h3>Monthly Savings:</h3>
-          <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
-          <h4>Total Monthly Savings: ${props.savings.total}</h4></div>
-          : null
-      }
-      {
-        props.income.total - props.expense.total - props.savings.total > 0
+        props.incomeTotal - props.expenseTotal - props.savings.total > 0
           ? <AddItem onClick={props.addSavings} savings surplus={props.surplus} />
           : null
       }
@@ -26,7 +25,9 @@ SavingsList.propTypes = {
   savings: PropTypes.object.isRequired,
   removeSavings: PropTypes.func.isRequired,
   addSavings: PropTypes.func.isRequired,
-  editSavings: PropTypes.func.isRequired
+  editSavings: PropTypes.func.isRequired,
+  incomeTotal: PropTypes.number.isRequired,
+  expenseTotal: PropTypes.number.isRequired
 }
 
 export default SavingsList;

@@ -4,55 +4,64 @@ import List from './List';
 import IncomeList from './IncomeList';
 import ExpenseList from './ExpenseList';
 import SavingsList from './SavingsList';
+import ListToggle from './ListToggle';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
 
-const Lists = (props) => {
-  return (
-    <div>
-      <h1 className="text-center">Welcome {props.user}!</h1>
-      {
-        props.surplus > 0
-          ? <Surplus amount={props.surplus} />
-          : props.surplus < 0
-            ? <Deficit amount={-1 * props.surplus} />
+
+const Lists = React.createClass({
+  propTypes: {
+    income: PropTypes.object.isRequired,
+    savings: PropTypes.object.isRequired,
+    surplus: PropTypes.number.isRequired,
+    expense: PropTypes.object.isRequired,
+    user: PropTypes.string.isRequired,
+    removeIncome: PropTypes.func.isRequired,
+    removeSavings: PropTypes.func.isRequired,
+    removeExpense: PropTypes.func.isRequired,
+    addIncome: PropTypes.func.isRequired,
+    addSavings: PropTypes.func.isRequired,
+    addExpense: PropTypes.func.isRequired,
+    editIncome: PropTypes.func.isRequired,
+    editExpense: PropTypes.func.isRequired,
+    editSavings: PropTypes.func.isRequired
+  },
+  getInitialState() {
+    return {toggle: 'INCOME'}
+  },
+  handleToggle(selection) {
+    this.setState({toggle: selection})
+  },
+  render () {
+    return (
+      <div>
+        <h1 className="text-center">Welcome {this.props.user}!</h1>
+        {
+          this.props.surplus > 0
+            ? <Surplus amount={this.props.surplus} />
+            : this.props.surplus < 0
+              ? <Deficit amount={-1 * this.props.surplus} />
+              : null
+        }
+        <ListToggle handleToggle={this.handleToggle} />
+        {
+          this.state.toggle === 'INCOME'
+            ? <IncomeList income={this.props.income} removeIncome={this.props.removeIncome} addIncome={this.props.addIncome} editIncome={this.props.editIncome} />
             : null
-      }
-
-      {
-        props.income.items.length > 0
-          ? <IncomeList income={props.income} removeIncome={props.removeIncome} addIncome={props.addIncome} editIncome={props.editIncome} />
-          : null
-      }
-      {
-        props.expense.essential.length > 0
-          ? <ExpenseList expense={props.expense} removeExpense={props.removeExpense} addExpense={props.addExpense} editExpense={props.editExpense} />
-          : null
-      }
-      {
-        props.savings.items.length > 0
-          ? <SavingsList savings={props.savings} removeSavings={props.removeSavings} addSavings={props.addSavings} editSavings={props.editSavings} />
-          : null
-      }
-    </div>
-  )
-}
-
-Lists.propTypes = {
-  income: PropTypes.object.isRequired,
-  savings: PropTypes.object.isRequired,
-  surplus: PropTypes.number.isRequired,
-  expense: PropTypes.object.isRequired,
-  user: PropTypes.string.isRequired,
-  removeIncome: PropTypes.func.isRequired,
-  removeSavings: PropTypes.func.isRequired,
-  removeExpense: PropTypes.func.isRequired,
-  addIncome: PropTypes.func.isRequired,
-  addSavings: PropTypes.func.isRequired,
-  addExpense: PropTypes.func.isRequired,
-  editIncome: PropTypes.func.isRequired,
-  editExpense: PropTypes.func.isRequired,
-  editSavings: PropTypes.func.isRequired
-}
+        }
+        {
+          this.state.toggle === 'EXPENSES'
+            ? <ExpenseList expense={this.props.expense} removeExpense={this.props.removeExpense} addExpense={this.props.addExpense} editExpense={this.props.editExpense} />
+            : null
+        }
+        {
+          this.state.toggle === 'SAVINGS'
+            ? <SavingsList savings={this.props.savings} removeSavings={this.props.removeSavings} addSavings={this.props.addSavings} editSavings={this.props.editSavings} incomeTotal={this.props.income.total} expenseTotal={this.props.expense.total} />
+            : null
+        }
+      </div>
+    )
+  }
+})
 
 export default Lists;
