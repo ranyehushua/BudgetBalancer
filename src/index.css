@@ -16,6 +16,8 @@ h2, h3, h4, p {
   margin-top: 0;
 }
 
+button:focus {outline:0 !important;}
+
 html {
   min-height: 100%;
 }
