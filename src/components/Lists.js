@@ -3,6 +3,7 @@ import AddItem from './AddItem';
 import List from './List';
 import IncomeList from './IncomeList';
 import ExpenseList from './ExpenseList';
+import SavingsList from './SavingsList';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
 
@@ -30,14 +31,7 @@ const Lists = (props) => {
       }
       {
         props.savings.items.length > 0
-          ? <div><h3>Monthly Savings:</h3>
-          <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
-          <h4>Total Monthly Savings: ${props.savings.total}</h4></div>
-          : null
-      }
-      {
-        props.income.total - props.expense.total - props.savings.total > 0
-          ? <AddItem onClick={props.addSavings} savings surplus={props.surplus} />
+          ? <SavingsList savings={props.savings} removeSavings={props.removeSavings} addSavings={props.addSavings} editSavings={props.editSavings} />
           : null
       }
     </div>
