@@ -30,7 +30,7 @@ const ExpenseList = (props) => {
 
 ExpenseList.propTypes = {
   expense: PropTypes.object.isRequired,
-  removeExpense: PropTypes.object.isRequired,
+  removeExpense: PropTypes.func.isRequired,
   addExpense: PropTypes.func.isRequired,
   editExpense: PropTypes.func.isRequired
 }

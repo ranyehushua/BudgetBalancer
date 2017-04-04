@@ -15,7 +15,7 @@ const IncomeList = (props) => {
 
 IncomeList.propTypes = {
   income: PropTypes.object.isRequired,
-  removeIncome: PropTypes.object.isRequired,
+  removeIncome: PropTypes.func.isRequired,
   addIncome: PropTypes.func.isRequired,
   editIncome: PropTypes.func.isRequired
 }

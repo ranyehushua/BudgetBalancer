@@ -24,7 +24,7 @@ const SavingsList = (props) => {
 
 SavingsList.propTypes = {
   savings: PropTypes.object.isRequired,
-  removeSavings: PropTypes.object.isRequired,
+  removeSavings: PropTypes.func.isRequired,
   addSavings: PropTypes.func.isRequired,
   editSavings: PropTypes.func.isRequired
 }
