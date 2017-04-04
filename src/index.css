@@ -20,6 +20,7 @@ button:focus {outline:0 !important;}
 
 html {
   min-height: 100%;
+  padding: 20px 5px;
 }
 
 body {
