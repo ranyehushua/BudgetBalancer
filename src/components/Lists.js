@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import IncomeList from './IncomeList';
 import ExpenseList from './ExpenseList';
 import SavingsList from './SavingsList';
+import SummaryList from './SummaryList';
 import ListToggle from './ListToggle';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
@@ -25,7 +26,7 @@ const Lists = React.createClass({
     editSavings: PropTypes.func.isRequired
   },
   getInitialState() {
-    return {toggle: 'INCOME'}
+    return {toggle: 'SUMMARY'}
   },
   handleToggle(selection) {
     this.setState({toggle: selection})
@@ -42,6 +43,11 @@ const Lists = React.createClass({
               : null
         }
         <ListToggle handleToggle={this.handleToggle} />
+        {
+          this.state.toggle === 'SUMMARY'
+            ? <SummaryList income={this.props.income} expense={this.props.expense} savings={this.props.savings} surplus={this.props.surplus} />
+            : null
+        }
         {
           this.state.toggle === 'INCOME'
             ? <IncomeList income={this.props.income} removeIncome={this.props.removeIncome} addIncome={this.props.addIncome} editIncome={this.props.editIncome} />
