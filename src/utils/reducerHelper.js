@@ -61,6 +61,8 @@ export const addExpense = (state, action) => {
           amount: action.amount
         }),
         discretionary: state.discretionary,
+        totalEssential: state.totalEssential + action.amount,
+        totalDiscretionary: state.totalDiscretionary,
         total: state.total + action.amount,
         idCounter: state.idCounter + 1
       }
@@ -72,6 +74,8 @@ export const addExpense = (state, action) => {
           desc: action.desc,
           amount: action.amount
         }),
+        totalEssential: state.totalEssential,
+        totalDiscretionary: state.totalDiscretionary + action.amount,
         total: state.total + action.amount,
         idCounter: state.idCounter + 1
       }
@@ -81,21 +85,24 @@ export const addExpense = (state, action) => {
 }
 
 export const removeExpense = (state, id) => {
-  let remove;
+  let removeEssential = 0,
+      removeDiscretionary = 0;
   // eslint-disable-next-line
   const filteredEssential = state.essential.filter((item) => {
     if (item.id !== id) return item;
-    else if (item.id === id) remove = item.amount;
+    else if (item.id === id) removeEssential = item.amount;
   });
   // eslint-disable-next-line
   const filteredDiscretionary = state.discretionary.filter((item) => {
     if (item.id !== id) return item;
-    else if (item.id === id) remove = item.amount;
+    else if (item.id === id) removeDiscretionary = item.amount;
   });
   const newState = {
     essential: filteredEssential,
     discretionary: filteredDiscretionary,
-    total: state.total - remove,
+    total: state.total - removeEssential - removeDiscretionary,
+    totalEssential: state.totalEssential - removeEssential,
+    totalDiscretionary: state.totalDiscretionary - removeDiscretionary,
     idCounter: state.idCounter
   }
 
@@ -103,17 +110,21 @@ export const removeExpense = (state, id) => {
 }
 
 export const editExpense = (state, action) => {
-  let remove, add, edit;
+  let removeEssential = 0,
+      removeDiscretionary = 0,
+      addEssential = 0,
+      addDiscretionary = 0,
+      edit;
   // eslint-disable-next-line
   const edittedEssential = state.essential.map((item) => {
     if (item.id !== action.id) return item;
     else if (item.id === action.id) {
-      remove = item.amount;
-      add = action.amount;
+      removeEssential = item.amount;
+      addEssential = action.amount;
       edit = {
         id: item.id,
         desc: action.desc,
-        amount: add
+        amount: addEssential
       }
       return edit;
     }
@@ -122,12 +133,12 @@ export const editExpense = (state, action) => {
   const edittedDiscretionary = state.discretionary.map((item) => {
     if (item.id !== action.id) return item;
     else if (item.id === action.id) {
-      remove = item.amount;
-      add = action.amount;
+      removeDiscretionary = item.amount;
+      addDiscretionary = action.amount;
       edit = {
         id: item.id,
         desc: action.desc,
-        amount: add
+        amount: addDiscretionary
       }
       return edit;
     }
@@ -135,7 +146,9 @@ export const editExpense = (state, action) => {
   const newState = {
     essential: edittedEssential,
     discretionary: edittedDiscretionary,
-    total: state.total - remove + add,
+    totalEssential: state.totalEssential - removeEssential + addEssential,
+    totalDiscretionary: state.totalDiscretionary - removeDiscretionary + addDiscretionary,
+    total: state.total - removeEssential - removeDiscretionary + addEssential + addDiscretionary,
     idCounter: state.idCounter
   }
 
