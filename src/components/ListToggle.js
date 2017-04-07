@@ -15,7 +15,7 @@ const ListToggle = React.createClass({
     }
   },
   getInitialState() {
-    return {selected: 'INCOME'}
+    return {selected: 'SUMMARY'}
   },
   toggleSummary() {
     this.props.handleToggle('SUMMARY');
