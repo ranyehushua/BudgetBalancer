@@ -14,8 +14,14 @@ const style={
     float: 'right',
     fontSize: '12px',
     marginLeft: '3px'
+  },
+  desc: {
+    float: 'left',
+    maxWidth: '75%'
+  },
+  clear: {
+    clear: 'both'
   }
-
 }
 
 const LineItem = React.createClass({
@@ -43,9 +49,10 @@ const LineItem = React.createClass({
         {this.state.editting === true
           ? <EditLineItem edit={this.submitEdit} id={this.props.id} desc={this.props.desc} amount={this.props.amount} />
           : <div>
-              {this.props.desc + ": $" + this.props.amount}
+              <div style={style.desc}>{this.props.desc + ": $" + this.props.amount}</div>
               <button className="btn btn-danger" onClick={this.props.remove} style={style.button}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               <button className="btn btn-default" onClick={() => {this.setState({editting: !this.state.editting})}} style={style.button}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+              <div style={style.clear}></div>
             </div>
         }
 
