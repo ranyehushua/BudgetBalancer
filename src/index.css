@@ -21,6 +21,7 @@ button:focus {outline:0 !important;}
 html {
   min-height: 100%;
   padding: 20px 5px;
+  font-size: 100%;
 }
 
 body {
@@ -44,6 +45,25 @@ ul {
 
 .prompt {
   margin-top: 100px;
+}
+
+@media (min-width: 300px) and (max-width: 374px) {
+  html {
+    font-size: 77%;
+  }
+  .container-fluid {
+    padding: 0 2px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 480px) {
+  html {
+    font-size: 82%;
+  }
+
+  .container-fluid {
+    padding: 0 5px;
+  }
 }
 
 @media (max-width: 480px) {
