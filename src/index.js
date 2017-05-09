@@ -17,7 +17,8 @@ store.subscribe(() => {
   saveState({
     income: store.getState().income,
     expense: store.getState().expense,
-    user: store.getState().user
+    user: store.getState().user,
+    savings: store.getState().savings
   });
 });
 
