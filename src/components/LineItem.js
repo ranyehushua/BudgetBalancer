@@ -20,11 +20,16 @@ const style={
   },
   desc: {
     float: 'left',
-    maxWidth: '75%',
+    width: '75%',
     fontSize: '1.1rem',
     lineHeight: '2.2em',
     display: 'inline',
-    verticalAlign: 'middle'
+    verticalAlign: 'middle',
+    wordWrap: 'break-word'
+  },
+  amount: {
+    float: 'right',
+    fontSize: '1.1rem'
   },
   clear: {
     clear: 'both'
@@ -56,7 +61,7 @@ const LineItem = React.createClass({
         {this.state.editting === true
           ? <EditLineItem edit={this.submitEdit} id={this.props.id} desc={this.props.desc} amount={this.props.amount} />
         : <div style={{lineHeight: '2rem'}}>
-              <div style={style.desc}>{this.props.desc + ": $" + this.props.amount}</div>
+              <div style={style.desc}>{this.props.desc + ":"}<span style={style.amount}>${this.props.amount}</span></div>
               <button className="btn btn-danger" onClick={this.props.remove} style={style.button}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               <button className="btn btn-default" onClick={() => {this.setState({editting: !this.state.editting})}} style={style.button}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
               <div style={style.clear}></div>

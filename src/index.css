@@ -49,7 +49,7 @@ ul {
 
 @media (min-width: 300px) and (max-width: 374px) {
   html {
-    font-size: 77%;
+    font-size: 80%;
   }
   .container-fluid {
     padding: 0 2px;
