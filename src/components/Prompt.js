@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import {hashHistory} from 'react-router';
 import CurrencyInput from './CurrencyInput';
 import TransparentContainer from './TransparentContainer';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import '../css/prompt.css';
 
 const Prompt = React.createClass({
   propTypes: {
@@ -21,8 +23,8 @@ const Prompt = React.createClass({
     hashHistory.push('/' + this.props.next);
   },
   render () {
-    return (
-      <div className='prompt'>
+    const prompt = (
+      <div key={this.props.desc} className='prompt'>
         <TransparentContainer>
           <div className='text-center'>
             <h3>{this.props.prompt}</h3>
@@ -42,6 +44,17 @@ const Prompt = React.createClass({
           </div>
         </TransparentContainer>
       </div>
+    )
+    return (
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionEnter={false}
+        transitionLeave={true}
+        transitionLeaveTimeout={500}
+        transitionAppear={true}
+        transitionAppearTimeout={800}>
+        {prompt}
+      </CSSTransitionGroup>
     )
   }
 });
