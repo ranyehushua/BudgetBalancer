@@ -6,6 +6,7 @@ import SummaryList from './SummaryList';
 import ListToggle from './ListToggle';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
+import '../index.css';
 
 
 const Lists = React.createClass({

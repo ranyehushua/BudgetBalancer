@@ -1,9 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { RouteTransition } from 'react-router-transition';
 
 const App = (props) => {
   return (
     <div className="container-fluid">
-      {props.children}
+      <RouteTransition
+        pathname={props.location.pathname}
+        atEnter={{ translateX: 100, opacity:1 }}
+        atLeave={{ translateX: -100, opacity:0, display:'none' }}
+        atActive={{ translateX: 0, opacity:1 }}
+        mapStyles={styles => ({
+          transform: `translateX(${styles.translateX}%)`,
+          position: 'absolute',
+          height: '100%',
+          top: '0px',
+          left: '0',
+          right: '0',
+          padding: '5%'
+        })}
+      >
+        {props.children}
+      </RouteTransition>
     </div>
   )
 }
