@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteTransition } from 'react-router-transition';
+import '../index.css'
 
 const App = (props) => {
   return (
@@ -19,7 +20,9 @@ const App = (props) => {
           padding: '5%'
         })}
       >
-        {props.children}
+        <div className="app">
+          {props.children}
+        </div>
       </RouteTransition>
     </div>
   )
