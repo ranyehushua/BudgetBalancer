@@ -10,6 +10,8 @@ import { loadState, saveState } from './utils/localStorage';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 
+runTests();
+
 const persistedState = loadState();
 const store = createStore(reducer, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -32,5 +34,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-runTests();
