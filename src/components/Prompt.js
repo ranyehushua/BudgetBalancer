@@ -23,7 +23,7 @@ const Prompt = React.createClass({
   },
   render () {
     return (
-      <div className='centered'>
+      <div className='prompt'>
         <TransparentContainer>
           <div className='text-center'>
             <h3>{this.props.prompt}</h3>

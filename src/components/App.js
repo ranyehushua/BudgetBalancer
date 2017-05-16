@@ -1,47 +1,18 @@
 import React from 'react';
-import { RouteTransition } from 'react-router-transition';
-import '../index.css';
-import setHeight from '../utils/setHeight';
-import $ from 'jquery';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
-const App = React.createClass({
-  componentDidUpdate() {
-    setHeight();
-  },
-  shouldComponentUpdate() {
-    //reset html height before each toggle update
-    $('html').height('100%');
-    return true;
-  },
-  componentDidMount() {
-    setHeight();
-  },
-  render () {
-    return (
-      <div className="container-fluid">
-        <RouteTransition
-          pathname={this.props.location.pathname}
-          atEnter={{ translateX: 100, opacity:1 }}
-          atLeave={{ translateX: -100, opacity:0, display:'none' }}
-          atActive={{ translateX: 0, opacity:1 }}
-          mapStyles={styles => ({
-            transform: `translateX(${styles.translateX}%)`,
-            position: 'absolute',
-            height: '100%',
-            top: '0px',
-            left: '0',
-            right: '0',
-            padding: '5%'
-          })}
-        >
-          <div className="app">
-            {this.props.children}
-          </div>
-        </RouteTransition>
-      </div>
-    )
-  }
-})
-
+const App = (props) => {
+  return (
+    <div className="container-fluid">
+      <CSSTransitionGroup
+        transitionName="appear"
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={500}
+      >
+        {React.cloneElement(props.children, {key: props.location.pathname})}
+      </CSSTransitionGroup>
+    </div>
+  )
+}
 
 export default App;

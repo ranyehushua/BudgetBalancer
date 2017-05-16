@@ -6,9 +6,6 @@ import SummaryList from './SummaryList';
 import ListToggle from './ListToggle';
 import Surplus from './Surplus';
 import Deficit from './Deficit';
-import '../index.css';
-import $ from 'jquery';
-import setHeight from '../utils/setHeight';
 
 const Lists = React.createClass({
   propTypes: {
@@ -31,18 +28,7 @@ const Lists = React.createClass({
     return {toggle: 'SUMMARY'}
   },
   handleToggle(selection) {
-    this.setState({toggle: selection});
-  },
-  componentDidUpdate() {
-    setHeight();
-  },
-  shouldComponentUpdate() {
-    //reset html height before each toggle update
-    $('html').height('100%');
-    return true;
-  },
-  componentDidMount() {
-    setHeight();
+    this.setState({toggle: selection})
   },
   render () {
     return (

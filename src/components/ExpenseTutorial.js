@@ -3,7 +3,7 @@ import {hashHistory} from 'react-router';
 
 const ExpenseTutorial = (props) => {
   return (
-    <div className="prompt">
+    <div>
       <h1>Great work so far!</h1>
       <p>Don't worry, if you have more income sources to add to the list, you will have an opportunity to add them shortly.</p>
       <p>For now, let's go through a few expenses. This will work just like the income prompts, we will start with the essentials and later you will have the opportunity to add more discretionary or essential expenses.</p>
