@@ -49,11 +49,13 @@ const Lists = React.createClass({
       <div>
         <h1 className="text-center">Welcome {this.props.user}!</h1>
         {
-          this.props.surplus > 0
+          this.state.toggle === 'SUMMARY'
+          ? this.props.surplus > 0
             ? <Surplus amount={this.props.surplus} />
             : this.props.surplus < 0
               ? <Deficit amount={-1 * this.props.surplus} />
               : null
+          : null
         }
         <ListToggle handleToggle={this.handleToggle} />
         {
