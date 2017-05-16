@@ -8,7 +8,7 @@ import Surplus from './Surplus';
 import Deficit from './Deficit';
 import '../index.css';
 import $ from 'jquery';
-import { setHeight } from './App';
+import setHeight from '../utils/setHeight';
 
 const Lists = React.createClass({
   propTypes: {
