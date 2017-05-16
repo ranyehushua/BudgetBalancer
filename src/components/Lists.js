@@ -47,7 +47,11 @@ const Lists = React.createClass({
   render () {
     return (
       <div>
-        <h1 className="text-center">Welcome {this.props.user}!</h1>
+        {
+          this.state.toggle === 'SUMMARY'
+            ?         <h1 className="text-center">Welcome {this.props.user}!</h1>
+            : <div style={{height: '20px'}}></div>
+        }
         {
           this.state.toggle === 'SUMMARY'
           ? this.props.surplus > 0
