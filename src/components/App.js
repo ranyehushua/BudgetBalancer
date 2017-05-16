@@ -1,13 +1,7 @@
 import React from 'react';
 import { RouteTransition } from 'react-router-transition';
 import '../index.css';
-import $ from 'jquery';
-
-export const setHeight = () => {
-  //Using .last() because the last instance of app class will always be the Lists component
-  if ($('html').height() < $('.app').last().height()) $('html').height($('.app').last().height());
-  console.log('setting height');
-}
+import setHeight from '../utils/setHeight';
 
 const App = React.createClass({
   componentDidUpdate() {
