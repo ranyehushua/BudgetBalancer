@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react';
 import List from './List';
 import AddItem from './AddItem';
+import Total from './Total';
 
 
 const SavingsList = (props) => {
   return (
     <div>
 
-        <div><h3>Monthly Savings:</h3>
-        <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
-        <h4>Total Monthly Savings: ${props.savings.total}</h4></div>
+        <div>
+          <h2 className="text-center">Monthly Savings</h2>
+          <List items={props.savings.items} clickRemove={props.removeSavings} clickEdit={props.editSavings} />
+          <Total desc="Total Monthly Savings" amount={props.savings.total}/>
+        </div>
 
 
       {

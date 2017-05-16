@@ -8,7 +8,7 @@ const styles = {
     margin: '10px auto'
   },
   button: {
-    margin: '0px'
+    margin: '5px'
   },
   surplus: {
     color: 'white',

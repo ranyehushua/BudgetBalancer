@@ -10,6 +10,8 @@ import { loadState, saveState } from './utils/localStorage';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 
+runTests();
+
 const persistedState = loadState();
 const store = createStore(reducer, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
@@ -17,7 +19,8 @@ store.subscribe(() => {
   saveState({
     income: store.getState().income,
     expense: store.getState().expense,
-    user: store.getState().user
+    user: store.getState().user,
+    savings: store.getState().savings
   });
 });
 
@@ -31,5 +34,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-runTests();

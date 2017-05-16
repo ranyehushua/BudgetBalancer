@@ -9,10 +9,17 @@ const ListToggle = React.createClass({
       margin: '0px 3%',
       width: '25%',
       padding: '5px 3px'
+    },
+    summary: {
+      width: '87%'
     }
   },
   getInitialState() {
-    return {selected: 'INCOME'}
+    return {selected: 'SUMMARY'}
+  },
+  toggleSummary() {
+    this.props.handleToggle('SUMMARY');
+    this.setState({selected: 'SUMMARY'});
   },
   toggleIncome() {
     this.props.handleToggle('INCOME');
@@ -28,6 +35,14 @@ const ListToggle = React.createClass({
   },
   render () {
     return (
+      <div>
+      <div className="form-group text-center">
+        <button type="button"
+                className={this.state.selected === 'SUMMARY' ? "btn btn-info" : "btn btn-default"}
+                onClick={this.toggleSummary} style={this.styles.summary}
+                >Summary
+        </button>
+      </div>
       <div className="form-group text-center">
         <button type="button"
                 className={this.state.selected === 'INCOME' ? "btn btn-info" : "btn btn-default"}
@@ -44,6 +59,7 @@ const ListToggle = React.createClass({
                 onClick={this.toggleSavings} style={this.styles.button}
                 >Savings
         </button>
+      </div>
       </div>
     )
   }

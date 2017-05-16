@@ -3,7 +3,7 @@ import expect from 'expect';
 var deepFreeze = require('deep-freeze');
 
 //Started idCounter for expense state at 10,000 and income at 0, so that keys don't match
-export const expense = (state = {essential: [], discretionary: [], total: 0, idCounter: 10000}, action) => {
+export const expense = (state = {essential: [], discretionary: [], total: 0, totalEssential: 0, totalDiscretionary: 0, idCounter: 10000}, action) => {
   switch (action.type) {
     case 'ADD_EXPENSE':
       return addExpense(state, action);
@@ -17,7 +17,7 @@ export const expense = (state = {essential: [], discretionary: [], total: 0, idC
 }
 
 export const testExpense = () => {
-  const before = {essential: [], discretionary: [], total: 0, idCounter: 10000};
+  const before = {essential: [], discretionary: [], totalEssential: 0, totalDiscretionary: 0, total: 0, idCounter: 10000};
   let after = {
     essential: [
       {
@@ -27,6 +27,8 @@ export const testExpense = () => {
       }
     ],
     discretionary: [],
+    totalEssential: 10.00,
+    totalDiscretionary: 0,
     total: 10.00,
     idCounter: 10001
   };
@@ -60,6 +62,8 @@ export const testExpense = () => {
         amount: 10.00
       }
     ],
+    totalEssential: 10.00,
+    totalDiscretionary: 10.00,
     total: 20.00,
     idCounter: 10002
   };
@@ -88,6 +92,8 @@ export const testExpense = () => {
       }
     ],
     discretionary: [],
+    totalEssential: 10.00,
+    totalDiscretionary: 0,
     total: 10.00,
     idCounter: 10002
   };
@@ -120,6 +126,8 @@ export const testExpense = () => {
       }
     ],
     total: 30.00, //was 20
+    totalEssential: 10.00,
+    totalDiscretionary: 20.00, //was 10
     idCounter: 10002
   };
 

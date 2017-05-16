@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import {hashHistory} from 'react-router';
 import CurrencyInput from './CurrencyInput';
 import TransparentContainer from './TransparentContainer';
+import '../index.css';
 
 const Prompt = React.createClass({
   propTypes: {
@@ -22,7 +23,7 @@ const Prompt = React.createClass({
   },
   render () {
     return (
-      <div className='prompt'>
+      <div className='centered'>
         <TransparentContainer>
           <div className='text-center'>
             <h3>{this.props.prompt}</h3>
