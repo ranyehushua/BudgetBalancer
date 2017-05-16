@@ -2,6 +2,7 @@ import React from 'react';
 import { RouteTransition } from 'react-router-transition';
 import '../index.css';
 import setHeight from '../utils/setHeight';
+import $ from 'jquery';
 
 const App = React.createClass({
   componentDidUpdate() {
